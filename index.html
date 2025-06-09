@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matthew A.</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #121212;
+      color: white;
+    }
+
+    /* --- HERO / HOMEPAGE --- */
+    .hero {
+      height: 100vh;
+      background: url('building.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 80px;
+      animation: fadeInBG 1s ease forwards;
+    }
+
+    @keyframes fadeInBG {
+      from { opacity: 0.7; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 5rem;
+      margin: 0 0 10px 0;
+      animation: fadeSlideUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+      font-weight: normal;
+    }
+
+    h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2rem;
+      margin: 0 0 30px 0;
+      animation: fadeSlideUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 0.6s;
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      animation: fadeSlideUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 0.9s;
+    }
+
+    button {
+      font-family: 'Times New Roman', Times, serif;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      padding: 20px 40px;
+      border-radius: 12px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      font-style: normal;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.7);
+    }
+
+    /* Background images for buttons */
+    #workBtn {
+      background-image: url('fibanocci.jpg'); /* Background image for Work button on homepage */
+    }
+
+    #contactBtn {
+      background-image: url('bnw.jpg'); /* Background image for Contact button on homepage */
+    }
+
+    /* --- MAIN CONTENT (after clicking Work or Contact) --- */
+    .section {
+      display: none;
+      padding: 60px 80px;
+      animation: fadeIn 0.5s ease forwards;
+      min-height: 100vh;
+      background-color: #121212;
+      color: white;
+      transition: background-image 0.5s ease;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: normal;
+    }
+
+    /* Background images for mainContent depending on section */
+    #mainContent.work-bg {
+      background-image: url('home.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    #mainContent.contact-bg {
+      background-image: url('contacts.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dropdown {
+      margin-bottom: 30px;
+      max-width: 500px;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: normal;
+    }
+
+    .dropdown-title {
+      cursor: pointer;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      padding: 15px 20px;
+      border-radius: 10px;
+      background-color: rgba(42, 42, 42, 0.8);
+      border: 1px solid #444;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    .dropdown-title:hover {
+      background-color: rgba(255, 204, 0, 0.3);
+      color: #ffcc00;
+    }
+
+    .dropdown-content {
+      display: none;
+      padding: 20px;
+      border-radius: 12px;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      box-shadow: inset 0 0 50px rgba(0,0,0,0.7);
+      background-size: cover;
+      background-position: center;
+      transition: max-height 0.5s ease;
+      overflow: hidden;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: normal;
+    }
+
+    /* Different background images for Work and Contact dropdown contents */
+    #workContent {
+      background-image: url('fibanocci.jpg');
+    }
+
+    #contactContent {
+      background-image: url('bnw.jpg');
+    }
+
+    .dropdown-content .item {
+      margin: 8px 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: normal;
+    }
+
+    .dropdown-content .item:hover {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO / HOMEPAGE -->
+  <div class="hero" id="hero">
+    <h1>Matthew Aniano</h1>
+    <h2>Professional photographer based in the Philippines</h2>
+    <div class="buttons">
+      <button id="workBtn" onclick="showMainContent()">Work</button>
+      <button id="contactBtn" onclick="showContactDirectly()">Contact</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT SECTION -->
+  <div class="section" id="mainContent">
+    <!-- Work Dropdown -->
+    <div class="dropdown">
+      <div class="dropdown-title" onclick="toggleDropdown('workContent')">Work</div>
+      <div class="dropdown-content" id="workContent">
+        <div class="item">Fashion</div>
+        <div class="item">Portraits</div>
+        <div class="item">Beauty</div>
+        <div class="item">Kids</div>
+        <div class="item">B & W</div>
+        <div class="item">Covers</div>
+        <div class="item">Products</div>
+        <div class="item">Design</div>
+        <div class="item">Lifestyle</div>
+        <div class="item">Advertising</div>
+      </div>
+    </div>
+
+    <!-- Contact Dropdown -->
+    <div class="dropdown">
+      <div class="dropdown-title" onclick="toggleDropdown('contactContent')">Contact</div>
+      <div class="dropdown-content" id="contactContent">
+        <div class="item">Gmail: matthew@example.com</div>
+        <div class="item">Facebook: facebook.com/matthew</div>
+        <div class="item">Instagram: @matthew.ig</div>
+        <div class="item">TikTok: @matthew.tiktok</div>
+        <div class="item">Phone: +63 912 345 6789</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showMainContent() {
+      document.getElementById('hero').style.display = 'none';
+      const mainContent = document.getElementById('mainContent');
+      mainContent.style.display = 'block';
+
+      mainContent.classList.add('work-bg');
+      mainContent.classList.remove('contact-bg');
+
+      closeDropdown('workContent');
+      closeDropdown('contactContent');
+    }
+
+    function showContactDirectly() {
+      document.getElementById('hero').style.display = 'none';
+      const mainContent = document.getElementById('mainContent');
+      mainContent.style.display = 'block';
+
+      mainContent.classList.add('contact-bg');
+      mainContent.classList.remove('work-bg');
+
+      openDropdown('contactContent');
+      closeDropdown('workContent');
+    }
+
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      const mainContent = document.getElementById('mainContent');
+
+      if (dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
+      } else {
+        dropdown.style.display = 'block';
+
+        if (id === 'workContent') {
+          mainContent.classList.add('work-bg');
+          mainContent.classList.remove('contact-bg');
+          closeDropdown('contactContent');
+        } else if (id === 'contactContent') {
+          mainContent.classList.add('contact-bg');
+          mainContent.classList.remove('work-bg');
+          closeDropdown('workContent');
+        }
+      }
+    }
+
+    function closeDropdown(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function openDropdown(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
