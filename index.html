@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <a href="#home" class="logo">TG<span>.</span></a>
+        <a href="#home" class="logo">MA<span>.</span></a>
 
         <nav>
             <a href="#home">Home</a>
@@ -110,29 +110,60 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <p class="small-text">GET IN TOUCH / 03</p>
+    
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <p class="small-text">GET IN TOUCH / 03</p>
 
-        <h2>Let's create<br>something <span>together.</span></h2>
+    <h2>Let's create<br>something <span>together.</span></h2>
 
-        <a href="mailto:your@email.com" class="contact-btn">
-            CONTACT ME ↗
-        </a>
+    <button class="contact-btn" onclick="openContact()">
+        CONTACT ME ↗
+    </button>
 
-        <div class="socials">
-    <a href="https://www.youtube.com/watch?v=RRIl-f5iWEo" target="_blank">
-        Facebook ↗
-    </a>
+    <!-- CONTACT POPUP -->
+    <div class="contact-popup" id="contactPopup">
 
-    <a href="https://www.instagram.com/USERNAME" target="_blank">
-        Instagram ↗
-    </a>
+        <div class="popup-content">
 
-    <a href="mailto:youremail@gmail.com">
-        Email ↗
-    </a>
-</div>
-    </section>
+            <button class="close-btn" onclick="closeContact()">×</button>
+
+            <p class="small-text">PERSONAL INFORMATION</p>
+
+            <h2>Contact Details<span>.</span></h2>
+
+            <div class="contact-details">
+
+                <p><strong>Name:</strong> Terence Guevarra</p>
+
+                <p><strong>Phone:</strong> 09XXXXXXXXX</p>
+
+                <p><strong>Facebook:</strong>
+                    <a href="https://www.facebook.com/USERNAME" target="_blank">
+                        My Facebook ↗
+                    </a>
+                </p>
+
+                <p><strong>Instagram:</strong>
+                    <a href="https://www.instagram.com/USERNAME" target="_blank">
+                        My Instagram ↗
+                    </a>
+                </p>
+
+                <p><strong>Email:</strong>
+                    <a href="mailto:youremail@gmail.com">
+                        youremail@gmail.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
     <footer>
         <p>© 2026 TERENCE GUEVARRA</p>
